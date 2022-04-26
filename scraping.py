@@ -58,7 +58,7 @@ def mars_news(browser):
 
 def featured_image(browser):
     # Visit URL
-    url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
+    url = 'https://spaceimages-mars.com'
     browser.visit(url)
 
     # Find and click the full image button
@@ -78,7 +78,7 @@ def featured_image(browser):
         return None
 
     # Use the base url to create an absolute url
-    img_url = f'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/{img_url_rel}'
+    img_url = f'https://spaceimages-mars.com/{img_url_rel}'
 
     return img_url
 
@@ -108,8 +108,6 @@ def hemispheres(browser):
     hemisphere_image_urls = []
 
     for hemisphere in range(4): 
-        
-        time.sleep(1) # https://stackoverflow.com/questions/24409861/tell-python-to-wait-pause-a-for-loop
         
         images = browser.find_by_css("a.product-item h3") # Find and click the image 
         images[hemisphere].click()
